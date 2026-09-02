@@ -1,0 +1,13 @@
+# Luminary Intelligence Suite — robots.txt
+# Auto-generated Night 158 (2026-09-03)
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /tools/
+Disallow: /admin/
+
+Sitemap: https://dereviankoandrey.github.io/luminary-product-hub/sitemap.xml
+
+# Help Google understand our pages are legitimate, not spam.
+Crawl-delay: 1
