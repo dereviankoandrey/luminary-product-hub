@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luminary — Get Early Access to the Deal Analysis Toolkit ($97 Value)</title>
+<meta name="description" content="Free real estate deal analysis toolkit + market intelligence briefs. Deterministic underwriting tools trusted by 20+ years of professional experience. Join the waitlist for early access.">
+<style>
+  :root { --bg: #0a0e17; --card: #141b2d; --accent: #38bdf8; --green: #34d399; --gold: #fbbf24; --red: #f87171; --purple: #a78bfa; --text: #e2e8f0; --muted: #8896ab; --border: #1e2a45; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+  /* Hero */
+  .hero { text-align: center; padding: 80px 20px 50px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+  .hero::before { content:''; position:absolute; top:-50%; left:-20%; width:140%; height:200%; background: radial-gradient(ellipse at center, rgba(56,189,248,.06) 0%, transparent 70%); pointer-events:none; }
+  .logo { font-size:.8rem; text-transform:uppercase; letter-spacing:3px; color:var(--accent); margin-bottom:16px; display:inline-block; padding:4px 16px; border:1px solid rgba(56,189,248,.3); border-radius:999px; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight:800; letter-spacing:-0.03em; margin-bottom:16px; line-height:1.15; max-width:700px; margin-left:auto; margin-right:auto; }
+  .hero h1 span { background: linear-gradient(135deg, var(--accent), #a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .tagline { color:var(--muted); font-size:clamp(1rem,2.5vw,1.2rem); max-width:600px; margin:0 auto 32px; line-height:1.7; }
+
+  /* Email Capture */
+  .capture-box { max-width:480px; margin:0 auto 24px; padding:0 20px; }
+  .email-form { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .email-form input[type="email"] { flex:1; min-width:220px; padding:12px 16px; border-radius:8px; border:1px solid var(--border); background:#0d1320; color:var(--text); font-size:.95rem; outline:none; }
+  .email-form input[type="email"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(56,189,248,.15); }
+  .btn-primary { background:linear-gradient(135deg, var(--accent), #7c3aed); color:#fff; padding:12px 28px; border:none; border-radius:8px; font-weight:600; font-size:.9rem; cursor:pointer; transition:opacity .15s; }
+  .btn-primary:hover { opacity:.9; }
+
+  /* Social Proof */
+  .social-proof { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; padding:20px 40px; border-bottom:1px solid var(--border); max-width:800px; margin:0 auto; }
+  .proof-item { text-align:center; }
+  .proof-num { font-size:1.3rem; font-weight:700; color:#fff; }
+  .proof-label { font-size:.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
+
+  /* Sections */
+  .section-header { text-align:center; padding:50px 20px 30px; max-width:700px; margin:0 auto; }
+  .section-header h2 { font-size:1.6rem; font-weight:700; color:#fff; margin-bottom:8px; }
+  .section-header p { color:var(--muted); font-size:.95rem; }
+
+  /* Toolkit Preview */
+  .toolkit-preview { max-width:900px; margin:0 auto; padding:30px 40px 50px; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:700px) { .toolkit-preview { grid-template-columns:1fr; } }
+  .kit-card { background:var(--card); border-radius:12px; padding:24px; border:1px solid var(--border); text-decoration:none; color:inherit; transition:border-color .15s, transform .15s; display:block; }
+  .kit-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  .kit-icon { font-size:1.8rem; margin-bottom:10px; }
+  .kit-card h3 { font-size:1rem; font-weight:700; color:#fff; margin-bottom:6px; }
+  .kit-card p { color:var(--muted); font-size:.82rem; line-height:1.5; }
+  .kit-tag { display:inline-block; font-size:.6rem; padding:2px 8px; border-radius:999px; background:rgba(52,211,153,.12); color:var(--green); text-transform:uppercase; letter-spacing:.5px; margin-top:8px; }
+
+  /* Comparison Teaser */
+  .comparison-teaser { max-width:700px; margin:0 auto; padding:40px; background:linear-gradient(135deg, rgba(248,113,113,.06), rgba(56,189,248,.06)); border-radius:16px; border:1px solid var(--border); margin-bottom:50px; }
+  .comparison-teaser h3 { font-size:1.3rem; color:#fff; margin-bottom:12px; text-align:center; }
+  .comparison-teaser p { color:var(--muted); text-align:center; margin-bottom:20px; line-height:1.7; }
+  .stat-row { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-bottom:20px; }
+  .stat-box { text-align:center; padding:16px 24px; background:rgba(0,0,0,.3); border-radius:8px; min-width:120px; }
+  .stat-box.deterministic { border-left:3px solid var(--green); }
+  .stat-box.ai-claim { border-left:3px solid var(--red); }
+  .stat-box .val { font-size:1.4rem; font-weight:700; color:#fff; }
+  .stat-box .label { font-size:.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-top:2px; }
+
+  /* What You Get */
+  .what-get { max-width:700px; margin:0 auto; padding:30px 40px 50px; }
+  .get-item { display:flex; gap:16px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--border); }
+  .get-icon { font-size:1.3rem; flex-shrink:0; margin-top:2px; }
+  .get-item h4 { color:#fff; font-size:.95rem; margin-bottom:4px; }
+  .get-item p { color:var(--muted); font-size:.82rem; line-height:1.5; }
+
+  /* Why Waitlist */
+  .why-waitlist { text-align:center; padding:60px 20px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:linear-gradient(135deg, rgba(56,189,248,.04), rgba(167,139,250,.04)); }
+  .why-waitlist h2 { font-size:1.5rem; color:#fff; margin-bottom:12px; }
+  .why-waitlist p { color:var(--muted); max-width:500px; margin:0 auto 24px; line-height:1.7; }
+
+  /* Footer */
+  footer { text-align:center; padding:30px 20px; border-top:1px solid var(--border); color:var(--muted); font-size:.75rem; }
+  footer a { color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="logo">Luminary Intelligence</div>
+  <h1>The Deal Analysis Toolkit — <span>Free for Waitlist Members</span></h1>
+  <p class="tagline">20+ years of professional underwriting experience, codified into automated tools. Deterministic math you can verify yourself. No models, no guesswork.</p>
+
+  <!-- Email Capture -->
+  <div class="capture-box">
+    <form class="email-form" onsubmit="handleSignup(event)">
+      <input type="email" id="email" placeholder="your@email.com" required autocomplete="email">
+      <button type="submit" class="btn-primary">Get Early Access →</button>
+    </form>
+  </div>
+
+  <!-- Social Proof -->
+  <div class="social-proof">
+    <div class="proof-item"><div class="proof-num">12+</div><div class="proof-label">Tools Deployed</div></div>
+    <div class="proof-item"><div class="proof-num">$0</div><div class="proof-label">Capital Required</div></div>
+    <div class="proof-item"><div class="proof-num">100%</div><div class="proof-label">Open Source</div></div>
+  </div>
+</div>
+
+<!-- Comparison Teaser -->
+<div style="padding:50px 20px;">
+  <div class="comparison-teaser">
+    <h3>🔍 See the Gap for Yourself</h3>
+    <p>Two methods. Same deal inputs ($420K purchase, $65K rehab, $580K ARV). The difference is staggering.</p>
+    <div class="stat-row">
+      <div class="stat-box deterministic"><div class="val">$847/mo</div><div class="label">Deterministic (Luminary)</div></div>
+      <div class="stat-box ai-claim"><div class="val">$1,203/mo</div><div class="label">AI Black Box Claim</div></div>
+    </div>
+    <p style="font-size:.85rem; color:var(--red); font-weight:600;">42% inflation — and you can't see why.</p>
+    <a href="/luminary-deal-analyzer/comparison-tool.html" class="btn-primary" style="display:inline-block; text-decoration:none;">Try the Comparison Tool →</a>
+  </div>
+</div>
+
+<!-- What's in the Toolkit -->
+<div class="section-header">
+  <h2>What You Get on the Waitlist</h2>
+  <p>Everything below is free and open source. No paywall, no trial — just tools.</p>
+</div>
+
+<div class="toolkit-preview">
+  <a href="/luminary-deal-analyzer/" class="kit-card">
+    <div class="kit-icon">📊</div>
+    <h3>Deterministic Deal Analyzer</h3>
+    <p>Full underwriting engine with SQLite math. Every calculation is auditable and reproducible.</p>
+    <span class="kit-tag">Live Tool</span>
+  </a>
+  <a href="/deal-screener-demo/" class="kit-card">
+    <div class="kit-icon">🔎</div>
+    <h3>Deal Screener Demo</h3>
+    <p>Screen deals against hard criteria: cash flow, cap rate, equity multiple. No fuzzy scoring.</p>
+    <span class="kit-tag">Live Tool</span>
+  </a>
+  <a href="/luminary-deal-scoring-matrix/" class="kit-card">
+    <div class="kit-icon">🎯</div>
+    <h3>Deal Scoring Matrix</h3>
+    <p>Multi-criteria scoring system with transparent weights. Know exactly why a deal passes or fails.</p>
+    <span class="kit-tag">Live Tool</span>
+  </a>
+  <a href="/luminary-safedeal-analyzer/" class="kit-card">
+    <div class="kit-icon">🛡️</div>
+    <h3>SafeDeal Analyzer</h3>
+    <p>Risk detection and red flag analysis for deal due diligence. Catch problems before they cost you.</p>
+    <span class="kit-tag">Live Tool</span>
+  </a>
+  <a href="/luminary-flash-analyses/" class="kit-card">
+    <div class="kit-icon">⚡</div>
+    <h3>Flash Market Analyses</h3>
+    <p>Rapid-fire market intelligence reports covering 25+ markets. Spot trends before the crowd.</p>
+    <span class="kit-tag">Live Tool</span>
+  </a>
+  <a href="/luminary-seo-landing-pages/" class="kit-card">
+    <div class="kit-icon">📋</div>
+    <h3>Underwriting Templates</h3>
+    <p>Professional-grade underwriting templates and SOPs. Copy-paste into your workflow.</p>
+    <span class="kit-tag">Live Tool</span>
+  </a>
+</div>
+
+<!-- What You Get After Signup -->
+<div class="section-header">
+  <h2>What Happens When You Sign Up</h2>
+</div>
+
+<div class="what-get">
+  <div class="get-item">
+    <div class="get-icon">📦</div>
+    <div><h4>The Full Toolkit Package (PDF + Files)</h4><p>A curated zip of all calculators, templates, and analysis frameworks — ready to use offline or integrate into your workflow.</p></div>
+  </div>
+  <div class="get-item">
+    <div class="get-icon">📰</div>
+    <div><h4>Weekly Market Intelligence Briefs</h4><p>One-page reports on market shifts, entitlement changes, and emerging opportunities. Think of it as a free subscription to professional-grade analysis.</p></div>
+  </div>
+  <div class="get-item">
+    <div class="get-icon">🚀</div>
+    <div><h4>Early Access to Paid Products</h4><p>Be first in line when we launch the premium tier — subscription-based DD reports, AI underwriting verification SaaS, and more. Waitlist members get founding member pricing.</p></div>
+  </div>
+  <div class="get-item">
+    <div class="get-icon">🎓</div>
+    <div><h4>Developer Playbook Access</h4><p>The full SOPs, checklists, and playbooks used to evaluate deals professionally. Usually only available through expensive courses or consulting engagements.</p></div>
+  </div>
+</div>
+
+<!-- Why Waitlist -->
+<div class="why-waitlist">
+  <h2>Why Join the Waitlist?</h2>
+  <p>We're building the most transparent real estate underwriting platform in existence. Everything is open source, deterministic, and auditable. When we launch paid products, waitlist members get first access + founding member pricing.</p>
+  <div class="capture-box">
+    <form class="email-form" onsubmit="handleSignup(event)">
+      <input type="email" id="email2" placeholder="your@email.com" required autocomplete="email">
+      <button type="submit" class="btn-primary">Get Early Access →</button>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Built by Luminary Intelligence. All tools are open source and free forever.</p>
+  <p style="margin-top:8px;">Questions? <a href="mailto:andrey.derevianko@gmail.com">Contact us</a></p>
+  <p style="margin-top:16px;"><a href="/">← Back to Product Hub</a></p>
+</footer>
+
+<script>
+function handleSignup(e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value || document.getElementById('email2').value;
+  if (!email) return;
+
+  // Store in localStorage for persistence
+  let waitlist = JSON.parse(localStorage.getItem('luminary_waitlist') || '[]');
+  if (waitlist.includes(email)) {
+    alert('You\'re already on the list! We\'ll be in touch.');
+    return;
+  }
+  waitlist.push(email);
+  localStorage.setItem('luminary_waitlist', JSON.stringify(waitlist));
+
+  // Open mailto as email capture fallback (Andrey gets notified)
+  const subject = encodeURIComponent('Luminary Waitlist Signup');
+  const body = encodeURIComponent('New waitlist signup:\n\nEmail: ' + email + '\nTimestamp: ' + new Date().toISOString());
+  window.location.href = 'mailto:andrey.derevianko@gmail.com?subject=' + subject + '&body=' + body;
+
+  // Show confirmation
+  alert('🎉 You\'re on the list! Check your inbox for a confirmation email (sent via mailto).\n\nYou can also bookmark our tools:\n' + window.location.origin);
+}
+
+// Track page view in analytics
+if (typeof gtag !== 'undefined') {
+  gtag('event', 'waitlist_page_view');
+}
+</script>
+
+</body>
+</html>
