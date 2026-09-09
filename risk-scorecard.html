@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luminary AI Deal Risk Scorecard — Free Underwriting Auditability Check</title>
+<meta name="description" content="Instantly score any real estate deal on 12 risk dimensions. See exactly where AI-powered tools are lying to you and what deterministic math catches that others miss.">
+<style>
+:root{--bg:#0a0e17;--card:#141b2d;--accent:#38bdf8;--green:#34d399;--gold:#fbbf24;--red:#f87171;--text:#e2e8f0;--muted:#8896ab;--border:#1e2a45}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:900px;margin:0 auto;padding:20px}
+
+/* Hero */
+.hero{text-align:center;padding:50px 20px 30px;border-bottom:1px solid var(--border)}
+.logo{font-size:.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:inline-block;padding:4px 14px;border:1px solid rgba(56,189,248,.3);border-radius:999px}
+.hero h1{font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin-bottom:12px;line-height:1.2}
+.hero p{color:var(--muted);max-width:600px;margin:0 auto;font-size:.95rem}
+
+/* Risk Score Display */
+.score-display{text-align:center;padding:40px 20px;background:radial-gradient(ellipse at center,rgba(56,189,248,.05) 0%,transparent 70%)}
+.score-circle{width:160px;height:160px;border-radius:50%;border:6px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;transition:border-color .5s}
+.score-value{font-size:3rem;font-weight:800;line-height:1}
+.score-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:4px}
+
+/* Risk Categories */
+.risk-grid{display:grid;gap:12px;padding:30px 20px;max-width:800px;margin:0 auto}
+.risk-item{background:var(--card);border-radius:10px;padding:16px;border-left:4px solid var(--border);transition:border-color .3s,transform .15s}
+.risk-item:hover{transform:translateX(3px)}
+.risk-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.risk-name{font-weight:600;font-size:.9rem;color:#fff}
+.risk-badge{font-size:.7rem;padding:2px 10px;border-radius:999px;font-weight:600}
+.risk-desc{color:var(--muted);font-size:.8rem;line-height:1.5}
+
+/* Input Section */
+.input-section{padding:30px 20px;max-width:700px;margin:0 auto}
+.input-section h2{text-align:center;font-size:1.3rem;color:#fff;margin-bottom:6px}
+.input-subtitle{text-align:center;color:var(--muted);font-size:.85rem;margin-bottom:24px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.form-group input,.form-group select{width:100%;padding:12px;background:#0d1117;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:.9rem;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* Results */
+.results-section{padding:30px 20px;display:none}
+.results-actions{text-align:center;padding:20px}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#a78bfa);color:#000;border:none;padding:14px 36px;border-radius:8px;font-weight:700;font-size:.95rem;cursor:pointer;transition:opacity .15s}
+.btn-primary:hover{opacity:.85}
+.btn-secondary{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:12px 24px;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;transition:opacity .15s;text-decoration:none;display:inline-block}
+.btn-secondary:hover{opacity:.7}
+
+/* CTA */
+.cta-bar{background:linear-gradient(135deg,rgba(56,189,248,.06),rgba(167,139,250,.06));border-top:1px solid var(--border);padding:40px 20px;text-align:center}
+.cta-bar h3{font-size:1.2rem;color:#fff;margin-bottom:8px}
+.cta-bar p{color:var(--muted);font-size:.85rem;margin-bottom:16px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* Footer */
+.footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:.75rem;border-top:1px solid var(--border)}
+
+/* Responsive */
+@media(max-width:600px){.form-row{grid-template-columns:1fr}.score-circle{width:120px;height:120px}.score-value{font-size:2.2rem}}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="hero">
+    <div class="logo">Luminary Intelligence</div>
+    <h1>AI Deal Risk Scorecard</h1>
+    <p>Score any real estate deal across 12 risk dimensions. See exactly where "AI-powered" tools are inflating returns and what deterministic math catches.</p>
+  </div>
+
+  <!-- Input Form -->
+  <div class="input-section" id="inputSection">
+    <h2>Analyze Your Deal</h2>
+    <p class="input-subtitle">Enter deal parameters — get an instant risk profile in seconds</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Purchase Price ($)</label>
+        <input type="number" id="purchasePrice" placeholder="250,000" value="250000">
+      </div>
+      <div class="form-group">
+        <label>Monthly Rent ($)</label>
+        <input type="number" id="monthlyRent" placeholder="2,200" value="2200">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Down Payment (%)</label>
+        <input type="number" id="downPayment" placeholder="25" value="25">
+      </div>
+      <div class="form-group">
+        <label>Interest Rate (%)</label>
+        <input type="number" id="interestRate" placeholder="7.0" step="0.1" value="7.0">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Estimated Rehab ($)</label>
+        <input type="number" id="rehabCost" placeholder="25,000" value="25000">
+      </div>
+      <div class="form-group">
+        <label>Hold Period (Years)</label>
+        <select id="holdPeriod">
+          <option value="1">1 year (flip)</option>
+          <option value="3">3 years</option>
+          <option value="5" selected>5 years</option>
+          <option value="10">10 years</option>
+          <option value="20">20+ years (buy & hold)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Appreciation Assumption (%)</label>
+      <select id="appreciation">
+        <option value="0" selected>0% (conservative — no appreciation needed)</option>
+        <option value="3">3% per year (market average)</option>
+        <option value="5">5% per year (optimistic)</option>
+        <option value="8">8% per year (very optimistic)</option>
+      </select>
+    </div>
+
+    <button class="btn-primary" onclick="calculateRisk()" style="width:100%;margin-top:24px">Calculate Risk Score →</button>
+  </div>
+
+  <!-- Results -->
+  <div class="results-section" id="resultsSection">
+    <div class="score-display">
+      <div class="score-circle" id="scoreCircle">
+        <span class="score-value" id="riskScore">—</span>
+        <span class="score-label">Risk Score</span>
+      </div>
+      <p style="color:var(--muted);font-size:.85rem" id="riskLabel"></p>
+    </div>
+
+    <div class="risk-grid" id="riskGrid"></div>
+
+    <div class="results-actions">
+      <a href="index.html" class="btn-secondary">← View Full Toolkit</a>
+      <a href="mailto:andrey.derevianko@gmail.com?subject=Luminary%20Deal%20Analysis%20Request&body=I%20just%20used%20the%20AI%20Risk%20Scorecard%20and%20want%20a%20full%20custom%20analysis" class="btn-secondary" style="margin-left:8px">Request Full Custom Analysis</a>
+    </div>
+  </div>
+
+  <!-- CTA Bar -->
+  <div class="cta-bar">
+    <h3>Want the complete toolkit?</h3>
+    <p>20+ professional underwriting tools, templates, and playbooks — all deterministic, all free to use.</p>
+    <div class="cta-links">
+      <a href="index.html" class="btn-primary">View All Tools</a>
+      <a href="waitlist.html" class="btn-secondary">Join Waitlist for Premium</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    Built by Luminary Intelligence Suite · Deterministic math you can verify yourself · No data leaves your browser
+  </div>
+</div>
+
+<script>
+function calculateRisk() {
+  const price = parseFloat(document.getElementById('purchasePrice').value) || 0;
+  const rent = parseFloat(document.getElementById('monthlyRent').value) || 0;
+  const dpPct = parseFloat(document.getElementById('downPayment').value) || 25;
+  const rate = parseFloat(document.getElementById('interestRate').value) || 7;
+  const rehab = parseFloat(document.getElementById('rehabCost').value) || 0;
+  const holdYears = parseInt(document.getElementById('holdPeriod').value) || 5;
+  const appPct = parseFloat(document.getElementById('appreciation').value) || 0;
+
+  // Calculations
+  const downPayment = price * (dpPct / 100);
+  const loanAmount = price - downPayment + rehab;
+  const monthlyRate = rate / 100 / 12;
+  const numPayments = holdYears * 12;
+  const mpr = monthlyRate === 0 ? loanAmount : loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+  const annualRent = rent * 12;
+  const noi = annualRent * 0.85; // conservative vacancy/maintenance
+  const capRate = price > 0 ? (noi / price) * 100 : 0;
+  const cashFlowMonthly = rent - mpr;
+  const cashOnCash = downPayment > 0 ? ((cashFlowMonthly * 12) / downPayment) * 100 : 0;
+
+  // Risk scoring (lower is better) — each dimension scored 0-10
+  let risks = [];
+  let totalRisk = 0;
+
+  // 1. Cash Flow Risk (negative cash flow = high risk)
+  const cfRisk = cashFlowMonthly < -500 ? 9 : cashFlowMonthly < -200 ? 7 : cashFlowMonthly < 0 ? 5 : cashFlowMonthly < 100 ? 3 : cashFlowMonthly < 300 ? 1 : 0;
+  risks.push({ name: "Negative Cash Flow", score: cfRisk, desc: cashFlowMonthly < 0 ? `You're losing $${Math.abs(cashFlowMonthly).toFixed(0)}/mo before taxes/insurance` : `Positive cash flow of $${cashFlowMonthly.toFixed(0)}/mo — healthy buffer` });
+  totalRisk += cfRisk;
+
+  // 2. Cap Rate Risk (below market = high risk)
+  const capRisk = capRate < 4 ? 9 : capRate < 5 ? 7 : capRate < 6 ? 5 : capRate < 7 ? 3 : 1;
+  risks.push({ name: "Below-Market Cap Rate", score: capRisk, desc: `Cap rate ${capRate.toFixed(1)}% — ${capRate < 5 ? '⚠️ Below threshold for risk-adjusted returns' : '✅ Within acceptable range' }` });
+  totalRisk += capRisk;
+
+  // 3. Appreciation Dependency (high reliance = high risk)
+  const appRisk = appPct >= 8 ? 9 : appPct >= 5 ? 7 : appPct >= 3 ? 4 : 1;
+  risks.push({ name: "Appreciation Dependency", score: appRisk, desc: appPct >= 5 ? `⚠️ At ${appPct}% appreciation assumption — returns heavily dependent on market timing` : appPct > 0 ? `${appPct}% is a reasonable historical average` : '✅ No appreciation assumed — conservative analysis' });
+  totalRisk += appRisk;
+
+  // 4. Rehab Risk (high rehab relative to price = high risk)
+  const rehabRatio = price > 0 ? rehab / price : 0;
+  const rehabRisk = rehabRatio > 0.2 ? 8 : rehabRatio > 0.1 ? 6 : rehabRatio > 0.05 ? 3 : 1;
+  risks.push({ name: "Rehab Cost Overrun Risk", score: rehabRisk, desc: `${(rehabRatio * 100).toFixed(0)}% of purchase price — ${rehabRatio > 0.15 ? '⚠️ High renovation exposure' : '✅ Manageable scope' }` });
+  totalRisk += rehabRisk;
+
+  // 5. Leverage Risk (high LTV = high risk)
+  const ltv = loanAmount / (price + rehab);
+  const levRisk = ltv > 0.9 ? 8 : ltv > 0.8 ? 6 : ltv > 0.7 ? 4 : 2;
+  risks.push({ name: "High Leverage Risk", score: levRisk, desc: `Loan-to-value ${ltv > 0.5 ? (ltv * 100).toFixed(0) + '%' : 'N/A'} — ${ltv > 0.85 ? '⚠️ Minimal equity cushion' : ltv > 0.7 ? 'Moderate leverage' : '✅ Strong equity position' }` });
+  totalRisk += levRisk;
+
+  // 6. Interest Rate Risk (high rate + long amortization)
+  const irRisk = rate > 8 ? 7 : rate > 7 ? 5 : rate > 6 ? 3 : 1;
+  risks.push({ name: "Interest Rate Sensitivity", score: irRisk, desc: `${rate}% rate — ${rate > 7.5 ? '⚠️ Significantly above historical average' : rate > 6.5 ? 'Above recent lows but manageable' : '✅ Favorable rate environment' }` });
+  totalRisk += irRisk;
+
+  // 7. Short Hold Risk (flipping = high risk)
+  const holdRisk = holdYears <= 1 ? 8 : holdYears <= 3 ? 6 : holdYears <= 5 ? 4 : holdYears <= 10 ? 2 : 1;
+  risks.push({ name: "Short Holding Period", score: holdRisk, desc: `${holdYears} year hold — ${holdYears <= 1 ? '⚠️ Flip strategy: timing-dependent and transaction-cost heavy' : holdYears <= 3 ? 'Short-term holds amplify transaction costs' : '✅ Sufficient time for compounding benefits' }` });
+  totalRisk += holdRisk;
+
+  // 8. Price-to-Rent Ratio Risk
+  const annualPrice = price / (annualRent || 1);
+  const prRisk = annualPrice > 30 ? 7 : annualPrice > 25 ? 5 : annualPrice > 20 ? 3 : 1;
+  risks.push({ name: "Price-to-Rent Ratio", score: prRisk, desc: `${annualPrice.toFixed(0)}x annual rent — ${annualPrice > 28 ? '⚠️ Buying is expensive vs renting' : annualPrice > 22 ? 'Fair market pricing' : '✅ Favorable buying conditions' }` });
+  totalRisk += prRisk;
+
+  // 9. Equity Multiple Risk (below 1.5x = concerning)
+  const futureValue = price * Math.pow(1 + appPct / 100, holdYears);
+  const totalInvested = downPayment + rehab + (mpr - rent) * numPayments;
+  const equityMultiple = totalInvested > 0 ? futureValue / (price + rehab) : 0;
+  const emRisk = equityMultiple < 1.3 ? 8 : equityMultiple < 1.5 ? 6 : equityMultiple < 2.0 ? 4 : 2;
+  risks.push({ name: "Below-Target Equity Multiple", score: emRisk, desc: `${equityMultiple.toFixed(2)}x return — ${equityMultiple < 1.3 ? '⚠️ Below minimum acceptable threshold' : equityMultiple < 2.0 ? 'Moderate returns relative to risk' : '✅ Strong risk-adjusted returns' }` });
+  totalRisk += emRisk;
+
+  // 10. Vacancy Risk (high vacancy assumption = high risk)
+  const vacRisk = parseFloat(document.getElementById('monthlyRent').value) > 3000 ? 5 : 2;
+  risks.push({ name: "Vacancy & Maintenance Exposure", score: vacRisk, desc: `Using ${vacRisk > 3 ? '⚠️ Conservative' : '✅ Standard'} vacancy/maintenance factor — single-tenant exposure` });
+  totalRisk += vacRisk;
+
+  // 11. Concentration Risk (single property)
+  risks.push({ name: "Single Asset Concentration", score: 5, desc: '⚠️ Single-property concentration risk — diversification recommended for meaningful portfolios' });
+  totalRisk += 5;
+
+  // 12. No Exit Strategy Risk
+  risks.push({ name: "Exit Strategy Clarity", score: holdYears <= 3 ? 6 : 2, desc: holdYears <= 3 ? '⚠️ Short hold requires defined exit buyer pool' : '✅ Long-term hold provides multiple exit options' });
+  totalRisk += (holdYears <= 3 ? 6 : 2);
+
+  // Normalize to 0-100 scale (lower = better)
+  const maxScore = risks.length * 9;
+  const normalizedRisk = Math.round((totalRisk / maxScore) * 100);
+  const safetyScore = 100 - normalizedRisk;
+
+  // Display results
+  document.getElementById('inputSection').style.display = 'none';
+  document.getElementById('resultsSection').style.display = 'block';
+
+  const scoreEl = document.getElementById('riskScore');
+  const circleEl = document.getElementById('scoreCircle');
+  const labelEl = document.getElementById('riskLabel');
+
+  scoreEl.textContent = safetyScore;
+
+  if (safetyScore >= 70) {
+    circleEl.style.borderColor = 'var(--green)';
+    labelEl.innerHTML = `<span style="color:var(--green)">✅ Strong Deal</span> — This deal passes the deterministic risk filter`;
+  } else if (safetyScore >= 50) {
+    circleEl.style.borderColor = 'var(--gold)';
+    labelEl.innerHTML = `<span style="color:var(--gold)">⚠️ Moderate Risk</span> — Review flagged dimensions before committing`;
+  } else {
+    circleEl.style.borderColor = 'var(--red)';
+    labelEl.innerHTML = `<span style="color:var(--red)">🔴 High Risk</span> — This deal fails the risk threshold. Reconsider or restructure.`;
+  }
+
+  // Render risk grid
+  const grid = document.getElementById('riskGrid');
+  grid.innerHTML = '';
+  risks.forEach(r => {
+    const color = r.score >= 7 ? 'var(--red)' : r.score >= 4 ? 'var(--gold)' : 'var(--green)';
+    const item = document.createElement('div');
+    item.className = 'risk-item';
+    item.style.borderLeftColor = color;
+    item.innerHTML = `
+      <div class="risk-header">
+        <span class="risk-name">${r.name}</span>
+        <span class="risk-badge" style="background:${color}22;color:${color}">${r.score}/9</span>
+      </div>
+      <p class="risk-desc">${r.desc}</p>`;
+    grid.appendChild(item);
+  });
+
+  // Scroll to top of results
+  window.scrollTo({ top: document.getElementById('resultsSection').offsetTop - 20, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
